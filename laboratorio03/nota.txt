@@ -1,0 +1,1 @@
+Uma nota a ser estudada posteriomente :  https://www.codequoi.com/en/binary-010-uses-of-bit-shifting-and-bitwise-operations/

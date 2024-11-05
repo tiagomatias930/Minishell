@@ -1,0 +1,26 @@
+1. Fundamentos do Shell e Parsing de Linha de Comando
+O que estudar: Comece com o básico sobre como funciona um shell, incluindo a estrutura de um prompt, parsing de comandos, redirecionamentos, variáveis de ambiente e sinais.
+Funções e conceitos:
+readline(): captura entradas do usuário e gera o prompt.
+strtok() ou strsep(): para quebrar strings de comandos.
+Redirecionamento: entender dup, dup2 e close para manipular descritores de arquivos e implementar redirecionamento de entrada e saída.
+2. Implementação de Pipes e Redirecionamento
+O que estudar: Aprenda sobre manipulação de pipes e como os shells utilizam o conceito de tubulação para conectar a saída de um processo à entrada de outro.
+Funções:
+pipe(): cria um canal de comunicação entre processos.
+fork(): cria processos filhos para execução dos comandos.
+execve(): executa um programa, usado para executar comandos de shell.
+waitpid(): espera a finalização de processos filhos, necessário para sincronizar execuções.
+3. Sinais e Tratamento de Exceções
+O que estudar: Como capturar e responder a sinais para gerenciar interrupções e finalizações, como Ctrl+C.
+Funções:
+signal(), sigaction(): captura e lida com sinais do sistema.
+kill(): envia sinais entre processos.
+
+
+
+
+=====================================================================
+Estudo concluidos hoje == Processos, manipulação de processsos, criação de processos filhos.
+Estudos concluidos hoje == Pipes,Introdução e conceitos base, Manipulacao de duplos fd, verificação de erros de pipes.
+Estudos concluidos hoje == Sinais, manipulacoes de sinais, intercepcao de sinais & bloqueio de sinais em c.
