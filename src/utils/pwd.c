@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   all_value.c                                        :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 09:59:07 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 10:54:55 by timatias         ###   ########.fr       */
+/*   Created: 2024/11/05 18:24:34 by timatias          #+#    #+#             */
+/*   Updated: 2024/11/05 18:55:49 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "../include/minishell.h"
 
-#define COLUNA 4
-#define LINHA 2
-
-int main()
+int     mini_pwd(void)
 {
-    char tableCMD[LINHA][COLUNA];
-
-    tableCMD[0][0] = "ls";
-    tableCMD[0][1] = "-al";
-    tableCMD[0][2] = NULL;
-    tableCMD[1][3] = "grep";
-    tableCMD[1][4] = "me";
-    return 0;
+    char cwd[PATH_MAX];
+    if (getcwd(cwd, sizeof(cwd)) != NULL)
+    {
+        printf("%s\n", cwd);
+        return (0);
+    }
+    perror ("minishell: pwd");
+    return (1);
 }

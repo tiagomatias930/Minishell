@@ -6,11 +6,11 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:20:23 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 18:20:49 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/05 18:54:41 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../include/minishell.h"
 
 int main(int argc, char **argv, char **envp)
 {

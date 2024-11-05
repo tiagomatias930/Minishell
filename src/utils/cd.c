@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 18:24:34 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 18:25:21 by timatias         ###   ########.fr       */
+/*   Created: 2024/11/05 18:24:05 by timatias          #+#    #+#             */
+/*   Updated: 2024/11/05 19:46:08 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../include/minishell.h"
 
-int     mini_pwd(void)
+int     mini_cd(char **args)
 {
-    char cwd[PATH_MAX];
-    if (getcwd(cwd, sizeof(cwd)) != NULL)
+    if (args[1] == NULL || chdir(args[1]) != 0)
     {
-        printf("%s\n", cwd);
-        return (0);
+        perror("minishell: cd");
+        return (1);
     }
-    perror ("minishell: pwd");
-    return (1);
+    return (0);
 }

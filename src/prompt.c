@@ -6,11 +6,11 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:21:01 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 18:35:35 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/05 18:54:55 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../include/minishell.h"
 
 void    prompt(t_shell *shell)
 {

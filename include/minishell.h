@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 08:46:39 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 18:25:27 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/05 20:09:58 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,15 @@
 
 typedef struct s_shell
 {
-    char    **env;
-    int     last_exit_status;
+    char **env; // Variáveis de ambiente
+    int last_exit_status; // Último status de saída
 } t_shell;
 
-void    prompt(t_shell *shell);
-void    parse_and_execute(char *input, t_shell *shell);
-
-int         mini_echo(char **args);
-int         mini_cd(char **args);
-int         mini_pwd(void);
+void   prompt(t_shell *shell);
+void   parse_and_execute(char *input, t_shell *shell);
+int     mini_echo(char **args);
+int     mini_cd(char **args);
+int     mini_pwd(void);
+int     ft_strcmp(const char *s1, const char *s2);
 
 #endif
-
-
