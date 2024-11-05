@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 18:21:34 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 18:22:01 by timatias         ###   ########.fr       */
+/*   Created: 2024/11/05 18:24:05 by timatias          #+#    #+#             */
+/*   Updated: 2024/11/05 18:24:13 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void parse_and_execute(char *input, t_shell *shell)
+int     mini_cd(char **args)
 {
-    char    *args[3];
-    args[0] = input;
-    args[1] = NULL;
-
-    if (strcmp(input, "exit") == 0)
+    if (args[1] == NULL || chdir(args[1]) != 0)
     {
-        printf ("exit\n");
-        exit (shell->last_exit_status);
+        perror("minishell: cd");
+        return (1);
     }
-    else if (strcmp(input, "echo") == 0)
-        mini_echo(args);
-    else
-        printf("Comando não encontrado: %s\n", input);
+    return (0);
 }

@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 18:21:34 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 18:22:01 by timatias         ###   ########.fr       */
+/*   Created: 2024/11/05 18:24:34 by timatias          #+#    #+#             */
+/*   Updated: 2024/11/05 18:25:21 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void parse_and_execute(char *input, t_shell *shell)
+int     mini_pwd(void)
 {
-    char    *args[3];
-    args[0] = input;
-    args[1] = NULL;
-
-    if (strcmp(input, "exit") == 0)
+    char cwd[PATH_MAX];
+    if (getcwd(cwd, sizeof(cwd)) != NULL)
     {
-        printf ("exit\n");
-        exit (shell->last_exit_status);
+        printf("%s\n", cwd);
+        return (0);
     }
-    else if (strcmp(input, "echo") == 0)
-        mini_echo(args);
-    else
-        printf("Comando não encontrado: %s\n", input);
+    perror ("minishell: pwd");
+    return (1);
 }
