@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 08:46:39 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 20:09:58 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/05 21:02:10 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <sys/wait.h>
+#include <signal.h>
+#include <fcntl.h>
 #include <limits.h>
 
 typedef struct s_shell
@@ -29,6 +31,8 @@ typedef struct s_shell
 } t_shell;
 
 void   prompt(t_shell *shell);
+void   ft_pwd(void);
+void   ctrl_c(int signal);
 void   parse_and_execute(char *input, t_shell *shell);
 int     mini_echo(char **args);
 int     mini_cd(char **args);
