@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 08:46:39 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 20:09:58 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:35:43 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_shell
 
 void   prompt(t_shell *shell);
 void   parse_and_execute(char *input, t_shell *shell);
+void    ft_pwd();
 int     mini_echo(char **args);
 int     mini_cd(char **args);
 int     mini_pwd(void);

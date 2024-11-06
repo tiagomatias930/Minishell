@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:21:34 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 20:03:53 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:36:02 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void parse_and_execute(char *input, t_shell *shell)
     }
     else if (ft_strcmp(input, "echo") == 0)
         mini_echo(args);
+    else if (ft_strcmp(input, "pwd") == 0)
+        ft_pwd();
     else
         printf("Comando não encontrado: %s\n", input);
 }
