@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 20:11:26 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 21:07:33 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/07 04:40:27 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,21 @@ int     ft_strcmp(const char *s1, const char *s2)
 }
 void    ctrl_c(int signal)
 {
+    t_shell shell;
+    pid_t pid;
+    
+    pid = fork();
+    if (pid == 0)
+    {
+        usleep(400);
+    }
+    if (pid > 0)
+    {
+        while (1)
+        {
+            prompt(&shell);
+            printf ("\n");
+        }
+    }
     (void)signal;
-    sleep(1);
-    wait(NULL);
-    exit (1);
 }
