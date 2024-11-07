@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 20:11:26 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/07 04:40:27 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/07 05:00:34 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void    ctrl_c(int signal)
     pid = fork();
     if (pid == 0)
     {
-        usleep(400);
+        usleep(100);
     }
     if (pid > 0)
     {
         while (1)
         {
-            prompt(&shell);
+            prompt(shell);
             printf ("\n");
         }
     }

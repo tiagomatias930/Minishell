@@ -6,13 +6,13 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:21:01 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 18:54:55 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/07 05:00:04 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-void    prompt(t_shell *shell)
+void    prompt(t_shell shell)
 {
     char    *input;
 
@@ -20,7 +20,7 @@ void    prompt(t_shell *shell)
     if (!input)
     {
         printf ("exit\n");
-        exit (shell->last_exit_status);
+        exit (shell.last_exit_status);
     }
     if (*input)
         add_history(input);
