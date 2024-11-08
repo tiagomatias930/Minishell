@@ -6,12 +6,18 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 20:11:26 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/07 05:00:34 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/08 07:08:29 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
+
+int     finish(void)
+{
+    printf ("exit\n");
+    exit(1);
+}
 int     ft_strcmp(const char *s1, const char *s2)
 {
     int     i;
@@ -25,21 +31,7 @@ int     ft_strcmp(const char *s1, const char *s2)
 }
 void    ctrl_c(int signal)
 {
-    t_shell shell;
-    pid_t pid;
-    
-    pid = fork();
-    if (pid == 0)
-    {
-        usleep(100);
-    }
-    if (pid > 0)
-    {
-        while (1)
-        {
-            prompt(shell);
-            printf ("\n");
-        }
-    }
+    rl_forced_update_display ();
+    rl_on_new_line ();
     (void)signal;
 }

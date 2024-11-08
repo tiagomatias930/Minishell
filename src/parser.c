@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:21:34 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/07 08:22:16 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/08 06:26:58 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ void parse_and_execute(char *input, t_shell shell)
     args[1] = NULL;
     if (ft_strcmp(input, "exit") == 0)
     {
-        printf ("exit\n");
-        return ;
+        finish();
     }
     else if (ft_strcmp(input, "echo") == 0)
-        mini_echo(args);
+        mini_echo(&args[0]);
     else if (ft_strcmp(input, "pwd") == 0)
         ft_pwd();
     else if (ft_strcmp(input, "\n") != 0)

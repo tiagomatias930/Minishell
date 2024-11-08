@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 08:46:39 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/07 04:59:15 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/08 06:26:44 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void   parse_and_execute(char *input, t_shell shell);
 int     mini_echo(char **args);
 int     mini_cd(char **args);
 int     mini_pwd(void);
+int     finish(void);
 int     ft_strcmp(const char *s1, const char *s2);
 
 #endif
