@@ -1,45 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   echo.c                                             :+:      :+:    :+:   */
+/*   utils01.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 07:34:35 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/11 11:50:40 by timatias         ###   ########.fr       */
+/*   Created: 2024/11/11 11:19:00 by timatias          #+#    #+#             */
+/*   Updated: 2024/11/11 11:53:23 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int ft_strnlen(char *str, int last)
+void    ft_print(char *str)
 {
-    int len = 0;
-    
-    while (str[len] != '\0')
-    {
-        if (len != last)
-        {
-            len++;
-        }
-        break;
-    }
-    return (len);
-}
+    int     index;
 
-void  ft_echo(t_data sct)
+    index = 0;
+    while (str[index] != '\0')
+    {
+        write (STDOUT_FILENO, &str[index], 1);
+        index++;
+    }
+}
+void ctrl_c(int signal)
 {
-    if (ft_strcmp(sct.arg, "-n") == 0)
-    {
-        ft_print (sct.data);
-    }
-    else
-    {
-        ft_print (sct.data);
-    }
     write(STDOUT_FILENO, "\n", 1);
     rl_set_prompt("timatias:~$ ");
+
+    // Indica à readline que uma nova linha será desenhada
     rl_on_new_line();
+
+    // Limpa o buffer de entrada atual
     rl_replace_line("", 0);
+
+    // Redesenha o prompt atualizado
     rl_redisplay();
+
+    (void)signal;  // Evita warning sobre o parâmetro não usado
+}
+int     finish(void)
+{
+    printf ("exit\n");
+    exit(1);
 }

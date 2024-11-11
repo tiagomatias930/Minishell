@@ -6,7 +6,7 @@
 #    By: timatias <timatias@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 18:18:29 by timatias          #+#    #+#              #
-#    Updated: 2024/11/05 19:56:41 by timatias         ###   ########.fr        #
+#    Updated: 2024/11/11 11:28:56 by timatias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ READLINE_FLAGS = -lreadline
 
 SRCS = src/main.c src/prompt.c src/parser.c src/executor.c \
        src/utils/echo.c src/utils/cd.c src/utils/pwd.c \
-       src/utils/utils.c
+       src/utils/utils.c src/utils/utils01.c 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

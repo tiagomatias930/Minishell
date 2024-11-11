@@ -6,28 +6,28 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:21:34 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/08 06:26:58 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/11 08:18:53 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-void parse_and_execute(char *input, t_shell shell)
+void parse_and_execute(t_data sct, t_shell shell)
 {
-    char    *args[3];
+    //char    *args[3];
     
-    args[0] = input;
-    args[1] = NULL;
-    if (ft_strcmp(input, "exit") == 0)
+    /*args[0] = input;
+    args[1] = NULL;*/
+    if (ft_strcmp(sct.input, "exit") == 0)
     {
         finish();
     }
-    else if (ft_strcmp(input, "echo") == 0)
-        mini_echo(&args[0]);
-    else if (ft_strcmp(input, "pwd") == 0)
+    else if (ft_strcmp(sct.input, "echo") == 0)
+        ft_echo(sct);
+    else if (ft_strcmp(sct.input, "pwd") == 0)
         ft_pwd();
-    else if (ft_strcmp(input, "\n") != 0)
-        prompt(shell);
+    else if (ft_strcmp(sct.input, "\n") != 0)
+        prompt(shell, sct);
     else
-        printf ("Comando não encontrado: %s\n", input);
+        printf ("Comando não encontrado: %s\n", sct.input);
 }

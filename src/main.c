@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:20:23 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/08 07:02:49 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/11 08:17:26 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int main(int argc, char **argv, char **envp)
 {
     t_shell shell;
+    t_data sct;
 
     (void)argc;
     (void)argv;
@@ -24,7 +25,7 @@ int main(int argc, char **argv, char **envp)
     signal(SIGINT,  ctrl_c);
     while (1)
     {
-        prompt(shell);
+        prompt(shell, sct);
     }
     return (0);
 }
