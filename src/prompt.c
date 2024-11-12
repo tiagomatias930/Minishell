@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:21:01 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/12 07:04:16 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/12 12:25:56 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ void prompt(t_shell shell, t_data sct)
     while (sct.division[sct.size_arg] != NULL)
     {
         sct.size_arg += 1;
+    }
+    if (sct.size_arg == 0)
+    {
+        sct.cmd = " ";
     }
     sct.cmd = sct.division[0];
     if (sct.size_arg > 0)

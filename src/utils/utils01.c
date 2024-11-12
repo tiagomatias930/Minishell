@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 11:19:00 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/11 11:53:23 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/12 11:51:48 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,15 @@ int     finish(void)
 {
     printf ("exit\n");
     exit(1);
+}
+
+void    ctrl_q(int signal)
+{
+    (void) signal;
+    
+    write(STDOUT_FILENO, "\n", 1);
+    rl_set_prompt("timatias:~$ ");
+    rl_on_new_line();
+    rl_replace_line("", 0);
+    rl_redisplay();
 }
