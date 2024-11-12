@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:21:01 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/11 11:48:17 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/12 07:04:16 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void prompt(t_shell shell, t_data sct)
 {
     sct.input = readline("timatias:~$ ");
+    //sct.input = malloc(sizeof(t_data));
     if (!sct.input)
     {
         printf("exit\n");
@@ -34,11 +35,12 @@ void prompt(t_shell shell, t_data sct)
     }
     else
     {
-        sct.arg = NULL;
-        sct.data = NULL;
+        sct.arg = " ";
+        sct.data = " ";
     }
     if (sct.input != NULL)
         add_history(sct.input);
     parse_and_execute(sct, shell);
     free(sct.input);
+    free(sct.division);
 }

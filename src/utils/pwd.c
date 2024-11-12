@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:24:34 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 20:46:09 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/12 07:12:16 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int     mini_pwd(void)
     {
         return (0);
     }
-    perror ("minishell: pwd");
+    perror ("timatias: pwd");
     return (1);
 }
 
