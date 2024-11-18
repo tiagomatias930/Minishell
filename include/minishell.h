@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 08:46:39 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/18 06:04:42 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/18 14:32:26 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@
 # include <sys/wait.h>
 # include <signal.h>
 # include <fcntl.h>
+# include <stddef.h>
 # include <limits.h>
 
 typedef struct s_shell
 {
     char    **env; // Variáveis de ambiente
+    char    *prompt;
     int         last_exit_status; // Último status de saída
 } t_shell;
 
@@ -47,11 +49,13 @@ void   ft_pwd(void);
 void   ctrl_c(int signal);
 void   ctrl_q(int signal);
 void   ft_ls(t_data sct);
-void   parse_and_execute(t_data sct, t_shell shell);
+void   parse_and_execute(t_data sct);
 void   ft_echo(t_data sct);
 void   ft_print(char *str);
-int     mini_cd(char **args);
-char	**ft_split(char *str);
+void   update_prompt(char *prompt_buffer, size_t size);
+int         ft_cd(char **args);
+char    **split_input(char *input);
+char    *ft_strcpy(char *dest, char *src);
 int         mini_pwd(void);
 int         finish(void);
 int         ft_strcmp(const char *s1, const char *s2);

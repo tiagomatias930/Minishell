@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 20:11:26 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/11 11:24:55 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/18 14:33:39 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,67 +32,72 @@ int     ft_strcmp(const char *s1, const char *s2)
     }
     return (s1[i] - s2[i]);
 }
-int 	len1(char *str)
-{
-    int i;
-    
-    i = 0;
-    while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-        i++;
-    return (i);
-}
 
-int		word_len(char *str, int j)
+char    *ft_strtok(char *str, const char *delim)
 {
-    int len;
-    
-    len = 0;
-    while (str[j] && str[j] != ' ' && str[j] != '\t' &&
-           str[j] != '\n' && str[j] != '\v' && str[j] != '\f')
+    static char *input = NULL;
+    char *start;
+
+    if (str != NULL)
     {
-        len++;
-        j++;
+        input = str;
     }
-    return (len);
+    if (input == NULL)
+    {
+        return NULL;
+    }
+    while (*input && strchr(delim, *input) != NULL)
+    {
+        input++;
+    }
+    if (*input == '\0')
+    {
+        return NULL;
+    }
+    start = input;
+    while (*input && strchr(delim, *input) == NULL)
+    {
+        input++;
+    }
+    if (*input != '\0')
+    {
+        *input = '\0';
+        input++;
+    }
+    return (start);
 }
 
-char 	**ft_split(char *str)
+char **split_input(char *input)
 {
-    int k = 0;
-    int j = len1(str);
-    int c = 0;
-    char **matriz;
+    int bufsize = 64; // Tamano inicial do buffer
+    int i = 0;        // Índice para os tokens
+    char **tokens = malloc(bufsize * sizeof(char *));
+    char *token;
 
-    for (int i = j; str[i]; i++)
-        if ((str[i] != ' ' && str[i] != '\t' && str[i] != '\n' && str[i] != '\v' && str[i] != '\f') &&
-            (i == 0 || str[i - 1] == ' ' || (str[i - 1] >= 9 && str[i - 1] <= 13)))
-            c++;
-
-    matriz = malloc(sizeof(char *) * (c + 1));
-    if (!matriz)
-        return NULL;
-
-    while (str[j])
-	{
-        while (str[j] == ' ' || (str[j] >= 9 && str[j] <= 13))
-            j++;
-
-        if (!str[j])
-            break;
-
-        int len = word_len(str, j);
-        matriz[k] = malloc(sizeof(char) * (len + 1));
-        if (!matriz[k])
-            return NULL;
-
-        int l = 0;
-        while (str[j] && str[j] != ' ' && str[j] != '\t' &&
-               str[j] != '\n' && str[j] != '\v' && str[j] != '\f')
-            matriz[k][l++] = str[j++];
-        
-        matriz[k][l] = '\0';
-        k++;
+    if (!tokens)
+    {
+        fprintf(stderr, "minishell: erro de alocação\n");
+        exit(EXIT_FAILURE);
     }
-    matriz[k] = NULL;
-    return (matriz);
+
+    // Usar strtok para dividir a string
+    token = ft_strtok(input, " \t\r\n"); // Separadores: espaço, tabulação, nova linha
+    while (token != NULL) {
+        tokens[i++] = token;
+
+        // Reajustar o tamanho do buffer, se necessário
+        if (i >= bufsize) {
+            bufsize += 64;
+            tokens = realloc(tokens, bufsize * sizeof(char *));
+            if (!tokens) {
+                fprintf(stderr, "minishell: erro de realocação\n");
+                exit(EXIT_FAILURE);
+            }
+        }
+
+        token = ft_strtok(NULL, " \t\r\n");
+    }
+
+    tokens[i] = NULL; // Finalizar o array com NULL
+    return (tokens);
 }

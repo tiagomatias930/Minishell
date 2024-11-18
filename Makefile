@@ -6,7 +6,7 @@
 #    By: timatias <timatias@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 18:18:29 by timatias          #+#    #+#              #
-#    Updated: 2024/11/18 06:05:32 by timatias         ###   ########.fr        #
+#    Updated: 2024/11/18 06:15:14 by timatias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ CFLAGS = -Wall -Wextra -Werror -Iinclude
 READLINE_FLAGS = -lreadline
 
 SRCS = src/main.c src/prompt.c src/parser.c src/executor.c \
-       src/builtins/echo.c src/builtins/cd.c src/builtins/pwd.c src/builtins/ft_ls.c \
-       src/utils/utils.c src/utils/utils01.c 
+       src/builtins/ft_echo.c src/builtins/ft_cd.c src/builtins/ft_pwd.c src/builtins/ft_ls.c \
+       src/utils/utils.c src/utils/utils01.c src/utils/ft_strcpy.c 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
