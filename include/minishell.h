@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 08:46:39 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/12 11:32:04 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/18 06:04:42 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <signal.h>
 # include <fcntl.h>
 # include <limits.h>
-# include <stdarg.h>
 
 typedef struct s_shell
 {
@@ -40,7 +39,6 @@ typedef struct  s_data
     char    **division;
     int             size_arg;
     int             status;
-    struct  t_data *next;
     
 } t_data;
 
@@ -48,6 +46,7 @@ void   prompt(t_shell shell, t_data sct);
 void   ft_pwd(void);
 void   ctrl_c(int signal);
 void   ctrl_q(int signal);
+void   ft_ls(t_data sct);
 void   parse_and_execute(t_data sct, t_shell shell);
 void   ft_echo(t_data sct);
 void   ft_print(char *str);

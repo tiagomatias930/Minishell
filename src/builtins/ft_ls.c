@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   echo.c                                             :+:      :+:    :+:   */
+/*   ft_ls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 07:34:35 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/12 08:21:14 by timatias         ###   ########.fr       */
+/*   Created: 2024/11/18 06:03:27 by timatias          #+#    #+#             */
+/*   Updated: 2024/11/18 06:03:57 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void  ft_echo(t_data sct)
+void  ft_ls(t_data sct)
 {
-    char *path = "/bin/echo"; // Caminho completo do executável
+    char    *env_ = getenv(sct.arg);
+    char *path = "/bin/ls"; // Caminho completo do executável
     char *args[] = {path, sct.arg, sct.data, NULL}; // Argumentos para o executável
-    char *env[] = {NULL}; // Ambiente, pode ser NULL se não precisar de variáveis de ambiente
+    char *env[] = {env_}; // Ambiente, pode ser NULL se não precisar de variáveis de ambiente
     
     // Usar execve para substituir o processo atual pelo novo
     pid_t fd = fork();
