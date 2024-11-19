@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:21:34 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/18 14:32:40 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/19 04:16:20 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    parse_and_execute(t_data sct)
 {
-    char **args;
+    char  **args;
     int         status;
 
     args = split_input(sct.input);
@@ -24,9 +24,7 @@ void    parse_and_execute(t_data sct)
         return;
     }
 
-    sct.cmd = args[0]; // Primeiro token é o comando
-
-    // Verificar comandos internos
+    sct.cmd = args[0]; 
     if (ft_strcmp(sct.cmd, "exit") == 0)
     {
         free(args); // Libera memória antes de encerrar
@@ -38,10 +36,11 @@ void    parse_and_execute(t_data sct)
     }
     else if (ft_strcmp(sct.cmd, "cd") == 0)
     {
-        if (ft_cd(args) != 0)
+        /*if (ft_cd(args) != 0)
         {
             fprintf(stderr, "minishell: erro ao executar cd\n");
-        }
+        }*/
+       ft_cd(args);
     }
     else if (ft_strcmp(sct.cmd, "pwd") == 0)
     {

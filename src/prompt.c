@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:21:01 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/18 14:37:37 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/19 06:28:41 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    prompt(t_shell shell, t_data sct)
 {
-    sct.input = readline("tiago: ~");
+    sct.input = readline("minishell: ");
     //sct.input = malloc(sizeof(t_data));
     if (!sct.input)
     {
@@ -26,6 +26,10 @@ void    prompt(t_shell shell, t_data sct)
     while (sct.division[sct.size_arg] != NULL)
     {
         sct.size_arg += 1;
+    }
+    if (sct.size_arg == 0)
+    {
+        sct.arg = " ";
     }
     if (sct.input != NULL)
         add_history(sct.input);
