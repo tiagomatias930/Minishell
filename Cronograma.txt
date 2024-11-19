@@ -1,6 +1,0 @@
-Semana 1: Estudo e implementação do loop principal do shell e leitura de comandos com readline.
-Semana 2: Tokenização e parsing do comando.
-Semana 3: Execução simples com fork e execve.
-Semana 4: Implementação de pipes e redirecionamentos.
-Semana 5: Tratamento de variáveis de ambiente e sinais.
-Semana 6: Implementação dos comandos built-ins.
