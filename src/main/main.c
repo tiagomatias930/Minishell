@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 03:40:20 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/20 16:45:13 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/20 17:13:42 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ int main(int argc, char **argv, char **env)
 
     while (1)
     {
-        input = readline("minishell> ");
+        //ft_printf(GREEN "╭─" RESET CYAN "[bocal@time7]" RESET YELLOW "──►" RESET "\n");
+        //input = readline(GREEN "╰─$ " RESET);
+        input = readline(GREEN "╭─" RESET CYAN "[bocal@time7] " RESET YELLOW "──►" RESET "\n" GREEN "╰─$ " RESET);
         if (!input)
         {
             printf("\nSaindo do Minishell...\n");

@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 07:19:45 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/20 16:43:39 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/20 17:07:32 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@
 # include "../libft/include/get_next_line.h"
 
 # define PROMPT "minishell> "
+# define RESET "\033[0m"
+# define GREEN "\033[32m"
+# define CYAN "\033[36m"
+# define YELLOW "\033[33m"
+
 
 typedef struct s_data
 {
