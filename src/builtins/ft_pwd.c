@@ -23,11 +23,12 @@ int     mini_pwd(void)
     perror ("timatias: pwd");
     return (1);
 }
+
 void    ft_pwd(void)
 {
     char    *pwd;
     int     veri_pwd;
-
+    
     pwd = getcwd(NULL, 0);
     veri_pwd = mini_pwd();
     if (veri_pwd == 0)

@@ -1,0 +1,6 @@
+======== Alvos para resolver =======
+
+1- Echo
+2- ls
+3- cd
+4- pwd  ----- Melhorar depois

@@ -17,19 +17,51 @@
  * Função principal do Minishell.
  * - Loop principal: lê, faz parsing e executa comandos.
  */
+
+char    *last_ddir(void)
+{
+    char    *pwd;
+    int     veri_pwd;
+    char    *last_dir;
+
+    pwd = getcwd(NULL, 0);
+    veri_pwd = mini_pwd();
+    if (veri_pwd == 0)
+    {
+        last_dir = ft_strrchr(pwd, '/');
+	    if (last_dir != NULL)
+	    {
+		    last_dir++;
+		    return (last_dir);
+	    }
+	    else
+	    {
+		     return (pwd);
+	    }
+    }
+    else
+    {
+        mini_pwd();
+    }
+    return (NULL);
+}
+
 int main(int argc, char **argv, char **env)
 {
-    char *input;
-    char **args;
+    char    *input;
+    char    **args;
+    char    *last_dir;
 
+    last_dir = last_ddir();
     (void)argc;
     (void)argv;
-
     while (1)
     {
         //ft_printf(GREEN "╭─" RESET CYAN "[bocal@time7]" RESET YELLOW "──►" RESET "\n");
         //input = readline(GREEN "╰─$ " RESET);
-        input = readline(GREEN "╭─" RESET CYAN "[bocal@time7] " RESET YELLOW "──►" RESET "\n" GREEN "╰─$ " RESET);
+
+        ft_printf(GREEN "╭─" RESET CYAN "[bocal@time7/%s] " RESET YELLOW "──►" RESET "\n", last_dir);
+        input = readline(GREEN "╰─$ " RESET);
         if (!input)
         {
             printf("\nSaindo do Minishell...\n");
