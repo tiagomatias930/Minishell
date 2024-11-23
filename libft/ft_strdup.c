@@ -14,20 +14,17 @@
 
 char	*ft_strdup(const char *s)
 {
-	char	*str;
-	int		i;
+	int		count;
 	int		size;
+	char	*dest;
 
 	size = ft_strlen(s);
-	str = (char *)malloc((size + 1) * sizeof(char));
-	if (str == NULL)
+	dest = malloc(sizeof(char) * (size + 1));
+	if (dest == NULL)
 		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		str[i] = s[i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	count = -1;
+	while (s[++count] != '\0')
+		dest[count] = s[count];
+	dest[count] = '\0';
+	return (dest);
 }

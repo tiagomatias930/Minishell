@@ -14,14 +14,9 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned int	i;
-	char			*str;
+	int	count;
 
-	i = 0;
-	str = (char *)s;
-	while (str[i] != '\0')
-	{
-		f(i, &str[i]);
-		i++;
-	}
+	count = -1;
+	while (s[++count] != '\0')
+		f(count, &s[count]);
 }

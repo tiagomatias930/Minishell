@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 20:11:26 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 20:17:30 by timatias         ###   ########.fr       */
+/*   Created: 2024/11/23 13:50:32 by timatias          #+#    #+#             */
+/*   Updated: 2024/11/23 14:59:49 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minishell.h"
+#include "minishell.h"
 
-int     ft_strcmp(const char *s1, const char *s2)
+void	ft_env(t_mini *ms, char **cmd, char ***envp)
 {
-    int     i;
+	size_t	i;
 
-    i = 0;
-    while (s1[i] != '\0' && s2[i] != '\0' && (s1[i] == s2[i]))
-    {
-        i++;
-    }
-    return (s1[i] - s2[i]);
+	if (cmd[1])
+	{
+		ft_putstr_fd ("-" PROMPT_MSG ": env: " INVALID_USAGE "\n", 2);
+		ms -> error = 42;
+	}
+	else
+	{
+		i = 0;
+		while (envp && *envp && envp[0][i])
+		{
+			printf ("%s\n", envp[0][i]);
+			i++;
+		}
+		ms -> error = 0;
+	}
 }

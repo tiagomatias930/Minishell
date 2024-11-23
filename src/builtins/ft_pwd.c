@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cd.c                                               :+:      :+:    :+:   */
+/*   ft_pwd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 18:24:05 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 19:46:08 by timatias         ###   ########.fr       */
+/*   Created: 2024/11/23 13:51:42 by timatias          #+#    #+#             */
+/*   Updated: 2024/11/23 14:59:35 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minishell.h"
+#include "minishell.h"
 
-int     mini_cd(char **args)
+void	ft_pwd(t_mini *ms, char **cmd, char **envp)
 {
-    if (args[1] == NULL || chdir(args[1]) != 0)
-    {
-        perror("minishell: cd");
-        return (1);
-    }
-    return (0);
+	size_t	i;
+
+	if (!cmd[1])
+	{
+		i = 0;
+		while (envp && ft_strncmp (envp[i], "PWD=", 4))
+			i++;
+		if (envp && envp[i])
+			printf ("%s\n", envp[i] + 4);
+	}
+	else
+	{
+		ft_putstr_fd ("-" PROMPT_MSG ": pwd: " INVALID_USAGE "\n", 2);
+		ms -> error = 42;
+	}
 }

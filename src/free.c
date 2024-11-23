@@ -1,29 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prompt.c                                           :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 18:21:01 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/05 18:54:55 by timatias         ###   ########.fr       */
+/*   Created: 2024/11/23 13:58:13 by timatias          #+#    #+#             */
+/*   Updated: 2024/11/23 14:30:08 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-void    prompt(t_shell *shell)
+char	*free_ptr(char *ptr)
 {
-    char    *input;
+	free(ptr);
+	ptr = NULL;
+	return (NULL);
+}
 
-    input = readline("timatias> ");
-    if (!input)
-    {
-        printf ("exit\n");
-        exit (shell->last_exit_status);
-    }
-    if (*input)
-        add_history(input);
-    parse_and_execute(input, shell);
-    free (input);
+char	**free_mat(char **mat)
+{
+	size_t	i;
+
+	i = 0;
+	while (mat && mat[i])
+	{
+		mat[i] = free_ptr(mat[i]);
+		i++;
+	}
+	free (mat);
+	mat = NULL;
+	return (NULL);
+}
+
+t_token	*free_token(t_token *token)
+{
+	t_token	*temp;
+
+	while (token)
+	{
+		temp = token;
+		token -> cmd = free_ptr (token -> cmd);
+		token = token -> next;
+		free (temp);
+	}
+	return (NULL);
 }

@@ -14,24 +14,16 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str;
-	int		i;
-	int		j;
-	int		size;
+	char	*dest;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	i = 0;
-	j = 0;
-	size = ft_strlen(s1) + ft_strlen(s2);
-	str = (char *)malloc((size + 1) * sizeof(char));
-	if (str == NULL)
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	dest = (char *)malloc((s1_len + s2_len + 1) * sizeof(char));
+	if (dest == NULL)
 		return (NULL);
-	while (s1[i] != '\0')
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0')
-		str[i++] = s2[j++];
-	str[i] = '\0';
-	return (str);
+	ft_memcpy((void *)dest, s1, s1_len + 1);
+	ft_memcpy((void *)&dest[s1_len], s2, s2_len + 1);
+	return (dest);
 }

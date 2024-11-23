@@ -3,16 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: timatias <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 08:00:28 by timatias          #+#    #+#             */
-/*   Updated: 2024/05/18 08:00:33 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/23 13:49:41 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4096
+# endif
 # include <stdlib.h>
 # include <unistd.h>
 

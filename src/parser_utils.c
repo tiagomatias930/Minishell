@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 18:24:34 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/06 16:40:20 by timatias         ###   ########.fr       */
+/*   Created: 2024/11/23 14:03:03 by timatias          #+#    #+#             */
+/*   Updated: 2024/11/23 14:30:35 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-int     mini_pwd(void)
+void	check_pipe(char *cmd, t_token **head)
 {
-    char cwd[PATH_MAX];
+	char	*input;
 
-    if (getcwd(cwd, sizeof(cwd)) != NULL)
-    {
-        return (0);
-    }
-    perror ("minishell: pwd");
-    return (1);
-}
-
-void    ft_pwd()
-{
-    int         teste_value;
-    char    *pwd;
-
-    teste_value = mini_pwd();
-    pwd = getcwd(NULL, 0);
-    if (teste_value == 0)
-    {
-        printf ("%s\n", pwd);
-    }
+	input = NULL;
+	if (!ft_strncmp(cmd, "|", 2))
+	{
+		input = readline("> ");
+		if (input && !input[0])
+		{
+			input = free_ptr(input);
+			return ;
+		}
+		parser(head, input);
+		input = free_ptr(input);
+	}
 }
