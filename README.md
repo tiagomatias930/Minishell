@@ -15,7 +15,7 @@ This project is about creating a simple shell. Yes, your own little bash. You wi
 </p>
 
 <p align="center">
-<SUB>Por Rafaela Bustamante e Raphael dos Santos Esteves, cadetes na 42 São Paulo.</SUB>
+<SUB>Por tiago Matias e Clementino Tete, cadetes na 42 Luanda.</SUB>
 </p>
 
 ---
