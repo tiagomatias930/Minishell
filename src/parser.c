@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:21:34 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 14:03:28 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/28 08:11:43 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,4 +139,3 @@ int	parser(t_token **head, char *str)
 	define_type(head);
 	return (0);
 }
-

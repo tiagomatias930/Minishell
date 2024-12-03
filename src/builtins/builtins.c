@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:46:20 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 14:59:03 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/03 06:42:57 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ static void	ft_easter_egg(char **prompt, int set)
 	if (set)
 	{
 		*prompt = free_ptr (*prompt);
-		printf ("\033[1;32mHi, I'm Tiago :)\033[0m\n");
+		printf ("\033[1;32mHi, We are Time 7 Bocal :)\033[0m\n");
 		*prompt = ft_strdup ("\033[1;32mTiago \033[0m> ");
 	}
 	else
 	{
 		*prompt = free_ptr (*prompt);
-		printf ("\033[1;32mBye, my friend o/\033[0m\n");
-		*prompt = ft_strdup (GREEN "╭─" RESET CYAN "[bocal@time7/%s] " RESET YELLOW "──►" RESET "\n" GREEN "╰─$ " RESET);
+		*prompt = ft_strdup (GREEN "╭─" RESET CYAN "[bocal@time7/] " RESET
+				YELLOW "──►" RESET "\n" GREEN "╰─$ " RESET);
 	}
 }
 

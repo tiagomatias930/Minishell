@@ -6,31 +6,29 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 08:46:39 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 14:58:37 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/03 06:54:20 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINES_H
-# define DEFINES_H
+#ifndef MINISHELL_H
+# define MINISHELL_H
 
 # define RESET "\033[0m"
 # define GREEN "\033[32m"
 # define CYAN "\033[36m"
 # define YELLOW "\033[33m"
-# define PROMPT GREEN "╭─" RESET CYAN "[bocal@time7/%s] " RESET YELLOW "──►" RESET "\n" GREEN "╰─$ " RESET
+# define PROMPT GREEN "╭─" RESET CYAN "[bocal@time7/] " RESET YELLOW "──►" RESET "\n" GREEN "╰─$ " RESET
 
-//     ft_printf(GREEN "╭─" RESET CYAN "[bocal@time7/%s] " RESET YELLOW "──►" RESET "\n", last_dir);
-//     input = readline(GREEN "╰─$ " RESET);
 # ifndef ERROR_MSG
 #  define ERROR_MSG "\033[1;31mERROR\n\033[0m"
 # endif
 
 # ifndef EXIT_MSG
-#  define EXIT_MSG "\033[1;35mSee you soon, human!\033[0m"
+#  define EXIT_MSG " "
 # endif
 
 # ifndef PROMPT_MSG
-#  define PROMPT_MSG GREEN "╭─" RESET CYAN "[bocal@time7/%s] " RESET YELLOW "──►" RESET "\n" GREEN "╰─$ " RESET
+#  define PROMPT_MSG GREEN "╭─" RESET CYAN "[bocal@time7/] " RESET YELLOW "──►" RESET "\n" GREEN "╰─$ " RESET
 # endif
 
 # ifndef INVALID_USAGE

@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:20:23 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 15:03:47 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/03 06:43:55 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 static char	*get_input(t_mini *ms, const char *prompt)
 {
 	char	*input;
-	(void) prompt;
 
-	input = readline (GREEN "╭─" RESET CYAN "[bocal@time7/%s] " RESET YELLOW "──►" RESET "\n" GREEN "╰─$ " RESET);
+	(void) prompt;
+	input = readline (GREEN "╭─" RESET CYAN "[bocal@time7/] " RESET
+			YELLOW "──►" RESET "\n" GREEN "╰─$ " RESET);
 	if (input && input[0])
 		add_history (input);
 	else if (!input)

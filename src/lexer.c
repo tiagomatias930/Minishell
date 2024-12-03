@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:58:25 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 14:30:24 by timatias         ###   ########.fr       */
+/*   Updated: 2024/11/28 08:15:20 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	**lexer(char *input)
 		{
 			temp = filler(temp, i);
 			i = i + 2;
-		}	
+		}
 		else if (temp[i] == '\"' || temp[i] == '\'')
 			quotes = check_quotes(temp[i], quotes);
 	}
