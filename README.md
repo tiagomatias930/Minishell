@@ -1,5 +1,5 @@
 <h1 align="center">
-	 [ Minishell ]
+	 [ Minishell Time 7 Bocal - 42Luanda]
 </h1>
 
 <p align="center"><br>
