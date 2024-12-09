@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:57:32 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 15:02:01 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:01:34 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static char	*number_to_string(int n)
 	return (errnum);
 }
 
-static char	*exit_status(t_mini *ms, char *f, char *cmd)
+static char	*exit_status(t_main *ms, char *f, char *cmd)
 {
 	char	*ret;
 
@@ -90,7 +90,7 @@ int	find_equalsing(char *var)
 	return (i);
 }
 
-char	*get_envp(t_mini *ms, char *cmd, char **envp)
+char	*get_envp(t_main *ms, char *cmd, char **envp)
 {
 	char	*ret;
 	int		len;

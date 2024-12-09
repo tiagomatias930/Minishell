@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:56:15 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 14:33:02 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:02:46 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	run_scmd(char **cmd, char **envp)
 	error = free_ptr (error);
 }
 
-static void	exit_child(t_mini *ms, char **cmd, int **fd, int code)
+static void	exit_child(t_main *ms, char **cmd, int **fd, int code)
 {
 	int	i;
 
@@ -59,14 +59,14 @@ static void	exit_child(t_mini *ms, char **cmd, int **fd, int code)
 	exit(ms -> error);
 }
 
-static void	file_error_message(t_mini *ms, char *cmd)
+static void	file_error_message(t_main *ms, char *cmd)
 {
 	ft_putstr_fd(PROMPT_MSG": ", 2);
 	ft_putstr_fd(cmd, 2);
 	ms -> error = 1;
 }
 
-static void	handle_invalid_file(t_mini *ms)
+static void	handle_invalid_file(t_main *ms)
 {
 	t_token	*temp;
 
@@ -93,7 +93,7 @@ static void	handle_invalid_file(t_mini *ms)
 	}
 }
 
-void	child(t_mini *ms, char **cmd, int **fd, int i)
+void	child(t_main *ms, char **cmd, int **fd, int i)
 {
 	int	out;
 	int	in;

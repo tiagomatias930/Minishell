@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:50:48 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 13:50:50 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:06:56 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	check_for_zeros(char *cmd)
 	return (0);
 }
 
-void	ft_exit(t_mini *ms, char **cmd)
+void	ft_exit(t_main *ms, char **cmd)
 {
 	int	code;
 

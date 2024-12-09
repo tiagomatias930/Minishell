@@ -6,13 +6,13 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:22:27 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 14:32:38 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:02:10 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-static t_executor	init_executor(t_mini *ms)
+static t_executor	init_executor(t_main *ms)
 {
 	int			i;
 	t_executor	ex;
@@ -39,7 +39,7 @@ static t_executor	init_executor(t_mini *ms)
 	return (ex);
 }
 
-static int	exec_on_parent(t_mini *ms, int n_pros, char **cmd, int **fd)
+static int	exec_on_parent(t_main *ms, int n_pros, char **cmd, int **fd)
 {
 	if (n_pros > 1)
 		return (-1);
@@ -56,7 +56,7 @@ static int	exec_on_parent(t_mini *ms, int n_pros, char **cmd, int **fd)
 	return (n_pros);
 }
 
-static void	exec_on_child(t_mini *ms, t_executor *ex, int i)
+static void	exec_on_child(t_main *ms, t_executor *ex, int i)
 {
 	ex->pid = malloc(sizeof(pid_t) * ex->n_pros);
 	while (++i < ex->n_pros)
@@ -74,7 +74,7 @@ static void	exec_on_child(t_mini *ms, t_executor *ex, int i)
 	}
 }
 
-void	executor(t_mini *ms)
+void	executor(t_main *ms)
 {
 	int			i;
 	int			j;

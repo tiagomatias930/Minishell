@@ -6,13 +6,13 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:20:23 by timatias          #+#    #+#             */
-/*   Updated: 2024/12/03 06:43:55 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 04:58:25 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-static char	*get_input(t_mini *ms, const char *prompt)
+static char	*get_input(t_main *ms, const char *prompt)
 {
 	char	*input;
 
@@ -26,7 +26,7 @@ static char	*get_input(t_mini *ms, const char *prompt)
 	return (input);
 }
 
-static void	cleaner(t_mini *ms)
+static void	cleaner(t_main *ms)
 {
 	ms -> input = free_ptr (ms -> input);
 	ms -> token = free_token (ms -> token);
@@ -45,13 +45,13 @@ static void	ft_sa_handler(int sig, siginfo_t *info, void *context)
 	}
 }
 
-static t_mini	ft_init(int argc, char *argv[], char **envp)
+static t_main	ft_init(int argc, char *argv[], char **envp)
 {
-	t_mini				ms;
+	t_main				ms;
 	struct sigaction	sa;
 
 	(void) argv;
-	ft_bzero (&ms, sizeof (t_mini));
+	ft_bzero (&ms, sizeof (t_main));
 	if (argc > 1)
 		exit_handler (&ms, "Usage: ./minishell", 1);
 	ft_bzero (&sa, sizeof (sa));
@@ -70,7 +70,7 @@ static t_mini	ft_init(int argc, char *argv[], char **envp)
 
 int	main(int argc, char *argv[], char **envp)
 {
-	t_mini	ms;
+	t_main	ms;
 
 	ms = ft_init(argc, argv, envp);
 	while (1)

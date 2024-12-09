@@ -6,13 +6,13 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:51:42 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/28 08:19:26 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:05:29 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_pwd(t_mini *ms, char **cmd, char **envp)
+void	ft_pwd(t_main *ms, char **cmd, char **envp)
 {
 	size_t	i;
 

@@ -6,13 +6,13 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:04:42 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 14:31:36 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:00:31 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-static int	check_next(t_mini *ms, t_token *token, int type)
+static int	check_next(t_main *ms, t_token *token, int type)
 {
 	if (type == PIPE && token->next && token->next->type == PIPE)
 	{
@@ -33,7 +33,7 @@ static int	check_next(t_mini *ms, t_token *token, int type)
 	return (0);
 }
 
-int	syntax_checker(t_mini *ms)
+int	syntax_checker(t_main *ms)
 {
 	t_token	*temp;
 

@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:04:27 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 14:33:21 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:03:02 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	init_fd(int	*fd)
 	fd[1] = -1;
 }
 
-char	**redirect(t_mini *ms, char **cmd, int *out, int *in)
+char	**redirect(t_main *ms, char **cmd, int *out, int *in)
 {
 	int		fd[2];
 	char	**ret;

@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:51:03 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 13:51:07 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:05:42 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static int	valid_var(char *var)
 	return (ret);
 }
 
-void	ft_export(t_mini *ms, char **cmd, char ***envp)
+void	ft_export(t_main *ms, char **cmd, char ***envp)
 {
 	int	i;
 	int	var_pos;

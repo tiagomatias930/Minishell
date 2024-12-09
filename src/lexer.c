@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:58:25 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/28 08:15:20 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/05 05:15:20 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 static char	*filler(char *input, int pos)
 {
-	char	*ret;
+	char	*string; // Está é a string que será retorna já pronta e devidamente separada para a tokenização
 	int		i;
 	int		j;
 
-	ret = ft_calloc(ft_strlen(input) + 3, sizeof (char));
-	if (!ret)
+	string = ft_calloc(ft_strlen(input) + 3, sizeof (char));
+	if (!string)
 		return (NULL);
 	i = -1;
 	j = -1;
 	while (++j < pos)
-		ret[j] = input[++i];
+		string[j] = input[++i];
 	i++;
-	ret[j++] = SEP;
-	ret[j++] = input[i++];
+	string[j++] = SEP;
+	string[j++] = input[i++];
 	if (input[i] == input[i - 1] && input[i] != '|')
-		ret[j++] = input[i++];
-	ret[j++] = SEP;
+		string[j++] = input[i++];
+	string[j++] = SEP;
 	while (input[i])
-		ret[j++] = input[i++];
-	ret[j] = '\0';
+		string[j++] = input[i++];
+	string[j] = '\0';
 	input = free_ptr(input);
-	return (ret);
+	return (string);
 }
 
 char	**lexer(char *input)
@@ -43,11 +43,13 @@ char	**lexer(char *input)
 	int		i;
 	int		quotes;
 	char	*temp;
-	char	**ret;
+	char	**string;
 
 	i = -1;
 	quotes = 0;
 	temp = ft_strdup(input);
+	if (temp == NULL)
+		return (NULL);
 	while (temp && temp[++i])
 	{
 		if ((temp[i] == '|' || temp[i] == '>' || temp[i] == '<' ) && !quotes)
@@ -60,7 +62,9 @@ char	**lexer(char *input)
 	}
 	if (quotes)
 		temp = free_ptr(temp);
-	ret = ft_split(temp, SEP);
+	string = ft_split(temp, SEP);
+	if (string == NULL)
+		return (NULL);
 	temp = free_ptr(temp);
-	return (ret);
+	return (string);
 }

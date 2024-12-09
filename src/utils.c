@@ -6,13 +6,13 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:05:00 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 14:29:52 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 04:59:35 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-void	exit_handler(t_mini *ms, const char *msg, const int code)
+void	exit_handler(t_main *ms, const char *msg, const int code)
 {
 	int	i;
 

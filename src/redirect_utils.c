@@ -6,13 +6,13 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:04:10 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 14:33:34 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:04:15 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-static int	heredoc(t_mini *ms, const char *eof, char **envp)
+static int	heredoc(t_main *ms, const char *eof, char **envp)
 {
 	char	*input;
 	int		file;
@@ -39,7 +39,7 @@ static int	heredoc(t_mini *ms, const char *eof, char **envp)
 	return (file);
 }
 
-static int	is_redin(t_mini *ms, char **cmd, int i, char **envp)
+static int	is_redin(t_main *ms, char **cmd, int i, char **envp)
 {
 	static int	file = -1;
 
@@ -86,7 +86,7 @@ static int	is_redirect(char *cmd)
 	return (0);
 }
 
-void	set_redirect(t_mini *ms, char **cmd, int *fd, char **ret)
+void	set_redirect(t_main *ms, char **cmd, int *fd, char **ret)
 {
 	int	i;
 	int	j;

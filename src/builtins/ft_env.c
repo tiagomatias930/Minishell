@@ -6,13 +6,13 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:50:32 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/28 08:18:53 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:06:41 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_env(t_mini *ms, char **cmd, char ***envp)
+void	ft_env(t_main *ms, char **cmd, char ***envp)
 {
 	size_t	i;
 

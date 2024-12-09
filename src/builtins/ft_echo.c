@@ -6,13 +6,13 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:50:17 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 14:59:20 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:04:55 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_echo(t_mini *ms, char **cmd)
+void	ft_echo(t_main *ms, char **cmd)
 {
 	char	new_line;
 	int		i;
@@ -39,4 +39,5 @@ void	ft_echo(t_mini *ms, char **cmd)
 	if (new_line)
 		printf ("\n");
 	ms -> error = 0;
+	free(cmd);
 }

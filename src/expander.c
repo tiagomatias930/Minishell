@@ -6,13 +6,13 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:57:42 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 14:31:57 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:01:01 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-static t_expand	init_expansion(t_mini *ms, char *cmd, char **envp, t_expand exp)
+static t_expand	init_expansion(t_main *ms, char *cmd, char **envp, t_expand exp)
 {
 	while (cmd[++exp.end])
 	{
@@ -38,7 +38,7 @@ static t_expand	init_expansion(t_mini *ms, char *cmd, char **envp, t_expand exp)
 	return (exp);
 }
 
-char	*expand(t_mini *ms, char *cmd, char **envp)
+char	*expand(t_main *ms, char *cmd, char **envp)
 {
 	t_expand	exp;
 
@@ -86,7 +86,7 @@ static char	*expand_quotes(char *cmd)
 	return (ft_mattstr_copy(ret));
 }
 
-void	expander(t_mini *ms, t_token **head, char **envp)
+void	expander(t_main *ms, t_token **head, char **envp)
 {
 	char	*temp;
 	t_token	*token;

@@ -56,7 +56,7 @@ typedef struct s_token
 	struct s_token	*prev;
 }	t_token;
 
-typedef struct s_mini
+typedef struct s_main
 {
 	char	*input;
 	char	*prompt;
@@ -64,7 +64,7 @@ typedef struct s_mini
 	t_token	*token;
 	char	error;
 	char	exit;
-}	t_mini;
+}	t_main;
 
 typedef struct s_expand
 {
@@ -87,7 +87,7 @@ typedef struct s_executor
 	int		n_pros;
 }	t_executor;
 
-void		exit_handler(t_mini *ms, const char *msg, const int code);
+void		exit_handler(t_main *ms, const char *msg, const int code);
 int			check_quotes(char c, int quotes);
 char		*ft_mattstr_copy(char **mat);
 char		**ft_matdup(char **mat);
@@ -98,24 +98,24 @@ char		**lexer(char *input);
 int			parser(t_token **head, char *str);
 char		*find_path(char	*cmd, char **envp);
 void		check_pipe(char *cmd, t_token **head);
-int			syntax_checker(t_mini *ms);
-char		*expand(t_mini *ms, char *cmd, char **envp);
-void		expander(t_mini *ms, t_token **head, char **envp);
-char		*get_envp(t_mini *ms, char *cmd, char **envp);
-void		executor(t_mini *ms);
+int			syntax_checker(t_main *ms);
+char		*expand(t_main *ms, char *cmd, char **envp);
+void		expander(t_main *ms, t_token **head, char **envp);
+char		*get_envp(t_main *ms, char *cmd, char **envp);
+void		executor(t_main *ms);
 char		**token_to_mat(t_token *token);
 void		close_fds(int **fd);
-void		child(t_mini *ms, char **cmd, int **fd, int i);
-char		**redirect(t_mini *ms, char **cmd, int *out, int *in);
-void		set_redirect(t_mini *ms, char **cmd, int *fd, char **ret);
-int			execbi(t_mini *ms, char **cmd, char ***envp, char *prompt);
-void		ft_echo(t_mini *ms, char **cmd);
-void		ft_cd(t_mini *ms, char **cmd, char ***envp);
-void		ft_pwd(t_mini *ms, char **cmd, char **envp);
-void		ft_export(t_mini *ms, char **cmd, char ***envp);
-void		ft_unset(t_mini *ms, char **cmd, char ***envp);
-void		ft_env(t_mini *ms, char **cmd, char ***envp);
-void		ft_exit(t_mini *ms, char **cmd);
+void		child(t_main *ms, char **cmd, int **fd, int i);
+char		**redirect(t_main *ms, char **cmd, int *out, int *in);
+void		set_redirect(t_main *ms, char **cmd, int *fd, char **ret);
+int			execbi(t_main *ms, char **cmd, char ***envp, char *prompt);
+void		ft_echo(t_main *ms, char **cmd);
+void		ft_cd(t_main *ms, char **cmd, char ***envp);
+void		ft_pwd(t_main *ms, char **cmd, char **envp);
+void		ft_export(t_main *ms, char **cmd, char ***envp);
+void		ft_unset(t_main *ms, char **cmd, char ***envp);
+void		ft_env(t_main *ms, char **cmd, char ***envp);
+void		ft_exit(t_main *ms, char **cmd);
 
 enum e_type{
 	PIPE = 10,

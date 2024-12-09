@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:51:56 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/23 13:51:58 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:06:26 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	remove_var(char *var, char ***envp)
 	temp_var = free_ptr (temp_var);
 }
 
-void	ft_unset(t_mini *ms, char **cmd, char ***envp)
+void	ft_unset(t_main *ms, char **cmd, char ***envp)
 {
 	while (*(++cmd))
 		remove_var (*cmd, envp);

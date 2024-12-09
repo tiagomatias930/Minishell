@@ -6,13 +6,13 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:48:39 by timatias          #+#    #+#             */
-/*   Updated: 2024/11/28 08:19:36 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:05:16 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	set_dir(t_mini *ms, char *dir, char ***envp)
+static void	set_dir(t_main *ms, char *dir, char ***envp)
 {
 	char	*temp;
 	char	**var;
@@ -51,7 +51,7 @@ static char	*get_home(char **envp)
 	return (home);
 }
 
-void	ft_cd(t_mini *ms, char **cmd, char ***envp)
+void	ft_cd(t_main *ms, char **cmd, char ***envp)
 {
 	if (cmd[1] && !cmd[2])
 		set_dir (ms, cmd[1], envp);

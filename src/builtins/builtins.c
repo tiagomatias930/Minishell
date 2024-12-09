@@ -6,7 +6,7 @@
 /*   By: timatias <timatias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 13:46:20 by timatias          #+#    #+#             */
-/*   Updated: 2024/12/03 06:42:57 by timatias         ###   ########.fr       */
+/*   Updated: 2024/12/09 05:04:28 by timatias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	ft_easter_egg(char **prompt, int set)
 	}
 }
 
-int	execbi(t_mini *ms, char **cmd, char ***envp, char *prompt)
+int	execbi(t_main *ms, char **cmd, char ***envp, char *prompt)
 {
 	if (!cmd || !*cmd || !*envp || !prompt)
 		return (-1);
